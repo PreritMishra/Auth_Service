@@ -4,9 +4,7 @@ const bodyParser = require('body-parser');
 const { PORT } = require('./config/serverConfig');
 const apiroutes = require('./routes/index');
 
-// const UserRepository = require('./repository/user-repository');
-// const {User} = require('./models/index');
-// const bcrypt = require('bcrypt');
+// const UserService = require('./services/user-service');
 
 const app = express();
 
@@ -18,13 +16,14 @@ const prepareAndStartServer = () => {
     app.use('/api', apiroutes);
     app.listen(PORT, async() => {
         console.log(`Server Started on Port: ${PORT}`);
-        // const repo = new UserRepository();
-        // const response = await repo.getById(1);
+        
+        // const service = new UserService();
+        // const newToken = service.createToken({email: 'prerit1@admin.com', id: 1});
+        // console.log("new token is", newToken);
+        // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByZXJpdDFAYWRtaW4uY29tIiwiaWQiOjEsImlhdCI6MTY3Mzk2NTkxNSwiZXhwIjoxNjczOTY5NTE1fQ.6GWaSqB75hpISzkKWTN9lFjnil4vSGXMWRnsPsa-5Ao';
+        // const response = service.verifyToken(token);
         // console.log(response);
-        // const incomingpassword = '12344556';
-        // const user = await User.findByPk(2);
-        // const response = bcrypt.compareSync(incomingpassword, user.password);
-        // console.log(response);
+
     });
 }
 
