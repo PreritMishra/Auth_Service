@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-class AppErrors extends Error {
+class AppError extends Error {
     constructor(
         name = 'AppError',
         message = 'Something went wrong',
@@ -14,4 +14,4 @@ class AppErrors extends Error {
     }
 }
 
-module.exports = AppErrors;     
+module.exports = AppError;     

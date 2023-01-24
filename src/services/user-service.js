@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const UserRepository = require('../repository/user-repository');
 const {JWT_KEY} = require('../config/serverConfig');
-const AppErrors = require('../utils/error-handler');
+const AppError = require('../utils/error-handler');
 
 class UserService {
     constructor() {
@@ -18,7 +18,7 @@ class UserService {
                 throw error;
             }
             console.log("Something went wrong in the service layer");
-            throw new AppErrors(
+            throw new AppError(
                 'ServerError',
                 'Something went wrong  in service',
                 'Logical issue found',
@@ -44,7 +44,12 @@ class UserService {
                 throw error;
             }
             console.log("Something went wrong in the sign in process");
-            throw {error};
+            throw new AppError(
+                'ServerError',
+                'Something went wrong  in service',
+                'Logical issue found',
+                500
+            );
         }
     }
 

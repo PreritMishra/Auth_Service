@@ -1,4 +1,3 @@
-const { response } = require('express');
 const UserService = require('../services/user-service');
 
 const userService = new UserService();
@@ -34,14 +33,15 @@ const signIn = async (req, res) => {
             success: true,
             data: response,
             err: {},
-            message: 'Successfully signed in'
+            message: 'Successfully signed in',
         });
     } catch (error) {
-        console.log(error);
+        //console.log(error);
         return res.status(error.statusCode).json({
             message: error.message,
             data: {},
             success: false,
+            message: error.message,
             err: error.explaination
         });
     }

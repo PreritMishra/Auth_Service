@@ -58,7 +58,7 @@ class UserRepository {
             return user;
         } catch (error) {
             console.log(error);
-            console.log("Something went wrong in the repositry layer");
+            console.log("Something went wrong in the repository layer");
             throw {error};
         }
     }
